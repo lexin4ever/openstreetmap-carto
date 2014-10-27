@@ -224,3 +224,6 @@ node,way    3dshapes:ggmodelk       text    delete
 node,way    AND_nosr_r              text    delete
 node,way    import                  text    delete
 node,way    it:fvg:*                text    delete
+
+node,way    height                  text    linear
+way         z_index                 text    linear

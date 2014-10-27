@@ -89,7 +89,7 @@
 @primary-width-z15:              12.8;
 @secondary-width-z15:            12.8;
 @tertiary-width-z15:             11.2;
-@residential-width-z15:           8.3;
+@residential-width-z15:           7.0;
 @bridleway-width-z15:             1.2;
 @footway-width-z15:               1.5;
 @cycleway-width-z15:              1.2;
@@ -99,7 +99,7 @@
 @track-grade2-width-z15:          0.75;
 @steps-width-z15:                 4;
 
-@residential-width-z16:          11.2;
+@residential-width-z16:          9.2;
 @service-width-z16:               6;
 @minor-service-width-z16:         4;
 
@@ -108,16 +108,16 @@
 @trunk-width-z17:                18;
 @primary-width-z17:              18;
 @secondary-width-z17:            18;
-@tertiary-width-z17:             15.5;
-@residential-width-z17:          15.5;
+@tertiary-width-z17:             13.5;
+@residential-width-z17:          12.5;
 @service-width-z17:               7;
 
 @casing-width-z12:                0.5;
 @casing-width-z13:                0.5;
 @residential-casing-width-z13:    0.5;
 @casing-width-z14:                0.5;
-@casing-width-z15:                0.7;
-@casing-width-z16:                0.7;
+@casing-width-z15:                1.5;
+@casing-width-z16:                1.5;
 @casing-width-z17:                1;
 
 @bridge-casing-width-z12:         0.5;

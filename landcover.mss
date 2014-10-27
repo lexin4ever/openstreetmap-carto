@@ -32,7 +32,7 @@
 @farmyard: #EFD6B5;         // Lch(87,20,80)
 @farmyard-line: #D1B48C;    // Lch(75,25,80)
 
-// --- Other ----
+// --- Other ----e dash l
 
 @aerodrome: #e9e7e2;
 @allotments: #e5c7ab;
@@ -450,6 +450,17 @@
   [barrier = 'hedge'][zoom >= 16] {
     line-width: 3;
     line-color: #aed1a0;
+  }
+}
+
+.volumewalls {
+  [zoom >= 18] {
+    line-width: 0.2;
+    line-opacity: 0.2;
+    line-color: #9C762E;
+  }
+  [zoom >= 19] {
+    line-opacity: 0.4;
   }
 }
 

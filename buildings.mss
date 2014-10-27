@@ -1,4 +1,4 @@
-@building: #bca9a9;
+@building: #E2CFCF;
 @station: #d4aaaa;
 @supermarket: pink;
 @placeOfWorship: #777;
@@ -34,18 +34,23 @@
 
 #buildings {
   [building = 'INT-light'][zoom >= 12] {
-    polygon-fill: @building;
+    polygon-fill: darken(@building, 15%);
     polygon-opacity: 0.7;
     polygon-clip: false;
   }
-  [building != 'INT-light'][building != ''][zoom >= 12] {
+  [building != 'INT-light'][building != ''][zoom >= 12][zoom < 16] {
+    polygon-fill: darken(@building, 5%);
+    polygon-opacity: 0.9;
+    polygon-clip: false;
+  }
+  [building != 'INT-light'][building != ''][zoom >= 16] {
+      //building-fill: @building;
+      //building-height: [height];
     polygon-fill: @building;
     polygon-opacity: 0.9;
     polygon-clip: false;
-    [zoom >= 16] {
-      line-color: saturate(darken(@building, 50%), 10%);
-      line-width: 0.2;
-    }
+        line-width: 0.3;
+        line-color: darken(@building, 5%);
   }
   [aeroway = 'terminal'][zoom >= 12]::aeroway {
     polygon-fill: @terminal;
@@ -54,5 +59,13 @@
       line-color: saturate(darken(@terminal, 50%), 20%);
       line-width: 0.2;
     }
+  }
+}
+
+
+#roofs{
+  [zoom = 19] {
+	building-fill: darken(@building, 15%);
+    building-height: 0.1; 
   }
 }
