@@ -1940,7 +1940,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select \nway, name, \"natural\", tags->'type' as type\n from planet_osm_point \nwhere \"natural\"='tree' OR \nhighway in ('street_lamp', 'crossing') OR \ntags->'noexit'='yes' \n) as smallobj",
+        "table": "(select \nway, name, \"natural\", highway, tags->'type' as type, tags->'noexit' as noexit\n from planet_osm_point \nwhere \"natural\"='tree' OR \nhighway in ('street_lamp', 'crossing') OR \ntags->'noexit'='yes' \n) as smallobj",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",

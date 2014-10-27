@@ -14,12 +14,24 @@ Map {
 
 #waynametagsnaturalas {
   [zoom >= 19]{
-    marker-width:6;
-    marker-fill:#f45;
-    marker-line-color:#813;
-    marker-allow-overlap:true;
+    marker-width:16;
+    //marker-fill:#f45;
+    //marker-line-color:#813;
+    //marker-allow-overlap:true;
     [natural='tree'] {
-      marker-file: url(symbols/tree2.png);
+      marker-file: url(symbols/trees.png);
+      [type='palm'] { marker-file: url(symbols/trees_palm.png); }
+      [type='coniferus'],[type='coniferous'] { marker-file: url(symbols/trees_conifer.png); }
+      [type='broad_leaved'] { marker-file: url(symbols/trees_broad_leaved.png); }
+    }
+    [highway='street_lamp'] {
+      marker-file: url(symbols/streetlamp.png);
+    }
+    [highway='crossing'] {
+      marker-file: url(symbols/vehicle/zebra_crossing.png);
+    }
+    [noexit='yes'] {
+      marker-file: url(symbols/vehicle/restriction/dead_end.png);
     }
   }
 }
