@@ -68,7 +68,7 @@
 }
 
 #placenames-medium::town {
-  [place = 'town'] {
+  [place = 'town'][zoom < 16] {
     [zoom >= 9] {
       text-name: "[name]";
       text-size: 9;
@@ -89,7 +89,7 @@
 }
 
 #placenames-small::suburb {
-  [place = 'suburb'][zoom >= 12] {
+  [place = 'suburb'][zoom >= 12][zoom < 16] {
     text-name: "[name]";
     text-size: 11;
     text-fill: @placenames;
@@ -104,8 +104,7 @@
 }
 
 #placenames-small::village {
-  [place = 'village'] {
-    [zoom >=12] {
+  [place = 'village'][zoom >=12][zoom < 16] {
       text-name: "[name]";
       text-size: 10;
       text-fill: @placenames;
@@ -116,10 +115,9 @@
         text-size: 13;
         text-fill: @placenames-light;
       }
-    }
   }
 }
-
+/*
 #placenames-small::hamlet {
   [place = 'hamlet'],
   [place = 'locality'],
@@ -140,3 +138,4 @@
     }
   }
 }
+*/

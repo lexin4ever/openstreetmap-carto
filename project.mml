@@ -12,7 +12,7 @@
   ],
   "format": "png",
   "interactivity": false,
-  "minzoom": 10,
+  "minzoom": 7,
   "maxzoom": 19,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
@@ -28,10 +28,10 @@
     "buildings.mss",
     "amenity-symbols.mss",
     "ferry-routes.mss",
-    "aerialways.mss",
     "admin.mss",
     "amenity-points.mss",
     "stations.mss",
+    "aerialways.mss",
     "addressing.mss"
   ],
   "Layer": [
@@ -115,9 +115,9 @@
       "geometry": "polygon",
       "extent": [
         -179.99999692067183,
-        -85.05112877980659,
+        -84.96651228427098,
         179.99999692067183,
-        85.05112877980659
+        84.96651228427098
       ],
       "Datasource": {
         "type": "postgis",
@@ -127,7 +127,8 @@
         "extent": "-20037508,-19929239,20037508,19929239",
         "key_field": "",
         "geometry_field": "",
-        "dbname": "gis"
+        "dbname": "gis",
+        "extent_cache": "auto"
       },
       "id": "landcover",
       "class": "",
@@ -1051,6 +1052,34 @@
       "name": "guideways"
     },
     {
+      "extent": [
+        -18.39368447887047,
+        27.433542580889927,
+        -13.101258455344324,
+        29.9118045434236
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way, way_area, name from planet_osm_polygon where admin_level='7') as islands",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-2047575.59,3177742.37,-1458425.42,3492218.17",
+        "dbname": "gis",
+        "user": "gisuser",
+        "password": "gispassword",
+        "id": "islands",
+        "project": "openstreetmap-carto",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "islands",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "islands"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         -179.99999692067183,
@@ -1066,7 +1095,10 @@
         "extent": "-20037508,-20037508,20037508,20037508",
         "key_field": "",
         "geometry_field": "way",
-        "dbname": "gis"
+        "dbname": "gis",
+        "id": "admin-01234",
+        "project": "openstreetmap-carto",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "admin-01234",
       "class": "",
@@ -1802,7 +1834,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "housenumbers"
+      "name": "housenumbers",
+      "status": "off"
     },
     {
       "geometry": "point",
@@ -1827,7 +1860,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "housenames"
+      "name": "housenames",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -1870,7 +1904,10 @@
         "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508,-20037508,20037508,20037508",
-        "dbname": "gis"
+        "dbname": "gis",
+        "id": "admin-text",
+        "project": "openstreetmap-carto",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "admin-text",
       "class": "",
@@ -1940,7 +1977,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select \nway, name, \"natural\", highway, tags->'type' as type, tags->'noexit' as noexit\n from planet_osm_point \nwhere \"natural\"='tree' OR \nhighway in ('street_lamp', 'crossing') OR \ntags->'noexit'='yes' \n) as smallobj",
+        "table": "(select \nway, name, \"natural\", amenity, highway, tags->'type' as type, tags->'noexit' as noexit\n from planet_osm_point \nwhere \"natural\"='tree' OR \nhighway in ('street_lamp', 'crossing') OR \ntags->'noexit'='yes'  OR\namenity='bench'\n) as smallobj",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -1955,6 +1992,32 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "waynametagsnaturalas"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -18.39368447887047,
+        27.433542580889945,
+        -13.101258455344322,
+        29.911804543423607
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": " (select way\n      from planet_osm_point\n      where amenity='fountain'\nUNION select way\n      from planet_osm_polygon\n      where amenity='fountain') as fountain",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-2047575.59,3177742.37,-1458425.42,3492218.17",
+        "dbname": "gis",
+        "user": "gisuser",
+        "password": "gispassword"
+      },
+      "id": "wayfromplanetosmpoin",
+      "class": "fountain",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "wayfromplanetosmpoin"
     }
   ],
   "scale": 1,

@@ -97,7 +97,7 @@
 @track-width-z15:                 1.5;
 @track-grade1-width-z15:          0.75;
 @track-grade2-width-z15:          0.75;
-@steps-width-z15:                 4;
+@steps-width-z15:                 2.5;
 
 @residential-width-z16:          9.2;
 @service-width-z16:               6;

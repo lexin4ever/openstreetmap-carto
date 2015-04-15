@@ -3,7 +3,7 @@
 #admin-01234 {
   [admin_level = '2'],
   [admin_level = '3'] {
-    [zoom >= 4] {
+    /*[zoom >= 4] {
       line-color: @admin-boundaries;
       line-width: 0.6;
     }
@@ -19,7 +19,7 @@
         line-dasharray: 4,2;
         line-clip: false;
       }
-    }
+    }*/
   }
   [admin_level = '4'] {
     [zoom >= 4] {
@@ -113,5 +113,18 @@
     text-wrap-width: 14;
     text-placement: interior;
     [zoom >= 11] { text-size: 11; }
+  }
+}
+
+#islands {
+  [way_area > 200000000][zoom < 13] {
+    text-name: "[name]";
+    text-size: 14;
+    text-placement-type: simple;
+    text-placements: "N,S,E,W,NE,SE,NW,SW,16,14,12";
+    text-fill: #9d6c9d;
+    text-face-name: @book-fonts;
+    text-halo-radius: 1.5;
+    text-wrap-width: 20;
   }
 }
